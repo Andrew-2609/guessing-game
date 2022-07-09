@@ -1,6 +1,9 @@
 #include <stdio.h>
 
 int main() {
-	printf("Welcome to my Guessing Game");
+	// print the game header
+	printf("*******************************\n");
+	printf("* Welcome to my Guessing Game *\n");
+	printf("*******************************\n");
 }
 
