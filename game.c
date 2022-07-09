@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define NUMBER_OF_TRIES 3
+
 int main() {
 	// print the game header
 	printf("*******************************\n");
@@ -9,8 +11,8 @@ int main() {
 	int secretNumber = 42;
 	int guess;
 	
-	for (int i = 1; i <= 3; i++) {
-		printf("Try %d of 3\n", i);
+	for (int i = 1; i <= NUMBER_OF_TRIES; i++) {
+		printf("Try %d of %d\n", i, NUMBER_OF_TRIES);
 		
 		printf("What's your guess?\n");
 		scanf("%d", &guess);
