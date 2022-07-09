@@ -18,18 +18,15 @@ int main() {
 		scanf("%d", &guess);
 		
 		int guessed = (guess == secretNumber);
+		int bigger = (guess > secretNumber);
 		
 		if (guessed) {
 			printf("Congratulations! You're right!\n");
 			break;
+		} else if (bigger) {
+			printf("Your guess was bigger than the secret number!\n");
 		} else {
-			int bigger = (guess > secretNumber);
-			
-			if (bigger) {
-				printf("Your guess was bigger than the secret number!\n");
-			} else {
-				printf("Your guess was smaller than the secret number!\n");
-			}
+			printf("Your guess was smaller than the secret number!\n");
 		}
 	}
 }
