@@ -12,11 +12,18 @@ int main() {
 	printf("What's your guess?\n");
 	scanf("%d", &guess);
 	
-	if (guess == secretNumber) {
+	int guessed = (guess == secretNumber);
+	
+	if (guessed) {
 		printf("Congratulations! You're right!\n");
 	} else {
-		printf("You missed! =/\n");
-		printf("But that's alright!! You can try again!\n");
+		int bigger = (guess > secretNumber);
+		
+		if (bigger) {
+			printf("Your guess was bigger than the secret number!\n");
+		} else {
+			printf("Your guess was smaller than the secret number!\n");
+		}
 	}
 }
 
