@@ -9,20 +9,25 @@ int main() {
 	int secretNumber = 42;
 	int guess;
 	
-	printf("What's your guess?\n");
-	scanf("%d", &guess);
-	
-	int guessed = (guess == secretNumber);
-	
-	if (guessed) {
-		printf("Congratulations! You're right!\n");
-	} else {
-		int bigger = (guess > secretNumber);
+	for (int i = 1; i <= 3; i++) {
+		printf("Try %d of 3\n", i);
 		
-		if (bigger) {
-			printf("Your guess was bigger than the secret number!\n");
+		printf("What's your guess?\n");
+		scanf("%d", &guess);
+		
+		int guessed = (guess == secretNumber);
+		
+		if (guessed) {
+			printf("Congratulations! You're right!\n");
+			break;
 		} else {
-			printf("Your guess was smaller than the secret number!\n");
+			int bigger = (guess > secretNumber);
+			
+			if (bigger) {
+				printf("Your guess was bigger than the secret number!\n");
+			} else {
+				printf("Your guess was smaller than the secret number!\n");
+			}
 		}
 	}
 }
