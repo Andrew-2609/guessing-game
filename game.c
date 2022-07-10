@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
 	// print the game header
@@ -9,6 +10,7 @@ int main() {
 	int secretNumber = 42;
 	int won = 0;
 	int numberOfTries = 0;
+	float points = 1000;
 	int guess;
 	
 	while (!won) {
@@ -35,8 +37,10 @@ int main() {
 		}
 		
 		numberOfTries++;
+		points = points - abs((guess - secretNumber)) / 2.0;
 	}
 	
-	printf("You made it in %d tries!\n", numberOfTries);
+	printf("You made it in %d try(ies)!\n", numberOfTries);
+	printf("Total Points: %.2f\n", points);
 }
 
