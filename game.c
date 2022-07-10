@@ -8,17 +8,38 @@ int main() {
 	printf("* Welcome to my Guessing Game *\n");
 	printf("*******************************\n\n");
 	
+	int level;
+	int numberOfTries;
+	
+	printf("Choose the game difficulty:\n");
+	printf("(1) Easy / (2) Medium / (3) Hard\n\n");
+	printf("I choose: ");
+	scanf("%d", &level);
+	
+	switch(level) {
+		case 1:
+			numberOfTries = 20;
+			break;
+		case 2:
+			numberOfTries = 10;
+			break;
+		default:
+			numberOfTries = 5;
+			break;
+	}
+		
 	int seconds = time(0);
 	srand(seconds);
 	
 	int secretNumber = rand() % 100;
 	int won = 0;
-	int numberOfTries = 5;
 	float points = 1000;
 	int guess;
 	
-	for (int i = 1; i <= numberOfTries; i++) {
-		printf("Try number %d:\n", i);
+	int currentTry = 1;
+	
+	for (currentTry = 1; currentTry <= numberOfTries; currentTry++) {
+		printf("Try number %d/%d:\n", currentTry, numberOfTries);
 		
 		printf("What's your guess?\n");
 		scanf("%d", &guess);
@@ -45,7 +66,7 @@ int main() {
 	}
 	
 	if (won) {
-		printf("\nYou made it in %d try(ies)!\n", numberOfTries);
+		printf("\nYou made it in %d tries)!\n", currentTry + 1);
 		printf("Total Points: %.2f\n", points);
 	} else {
 		printf("\nYou lost =/ the secret number was %d\n", secretNumber);
