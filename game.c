@@ -6,19 +6,19 @@ int main() {
 	// print the game header
 	printf("*******************************\n");
 	printf("* Welcome to my Guessing Game *\n");
-	printf("*******************************\n");
+	printf("*******************************\n\n");
 	
 	int seconds = time(0);
 	srand(seconds);
 	
 	int secretNumber = rand() % 100;
 	int won = 0;
-	int numberOfTries = 0;
+	int numberOfTries = 5;
 	float points = 1000;
 	int guess;
 	
-	while (!won) {
-		printf("Try number %d:\n", numberOfTries + 1);
+	for (int i = 1; i <= numberOfTries; i++) {
+		printf("Try number %d:\n", i);
 		
 		printf("What's your guess?\n");
 		scanf("%d", &guess);
@@ -34,17 +34,21 @@ int main() {
 		if (guessed) {
 			printf("\nCongratulations! You're right!\n");
 			won = 1;
+			break;
 		} else if (bigger) {
 			printf("Your guess was bigger than the secret number!\n");
 		} else {
 			printf("Your guess was smaller than the secret number!\n");
 		}
-		
-		numberOfTries++;
+
 		points = points - abs((guess - secretNumber)) / 2.0;
 	}
 	
-	printf("You made it in %d try(ies)!\n", numberOfTries);
-	printf("Total Points: %.2f\n", points);
+	if (won) {
+		printf("\nYou made it in %d try(ies)!\n", numberOfTries);
+		printf("Total Points: %.2f\n", points);
+	} else {
+		printf("\nYou lost =/ the secret number was %d\n", secretNumber);
+	}
 }
 
